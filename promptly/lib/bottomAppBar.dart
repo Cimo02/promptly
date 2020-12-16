@@ -34,7 +34,7 @@ class BottomControlBar extends StatelessWidget {
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
               icon: const Icon(
-                Icons.favorite,
+                Icons.favorite_border,
                 size: 30.0,
               ),
               onPressed: () {
