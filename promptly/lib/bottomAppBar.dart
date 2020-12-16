@@ -23,14 +23,20 @@ class BottomControlBar extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              icon: const Icon(Icons.share_rounded),
+              icon: const Icon(
+                Icons.share_rounded,
+                size: 30.0,
+              ),
               onPressed: () {
                 print('Share button pressed');
               },
             ),
             if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
-              icon: const Icon(Icons.favorite),
+              icon: const Icon(
+                Icons.favorite,
+                size: 30.0,
+              ),
               onPressed: () {
                 print('Favorite button pressed');
               },

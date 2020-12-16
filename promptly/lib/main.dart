@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'bottomAppBar.dart';
+import 'borderedButton.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'promptly',
       theme: ThemeData(
-        primaryColor: Colors.teal[200],
+        primaryColor: Colors.teal[300],
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'promptly'),
@@ -48,8 +49,11 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0.0,
         leading: IconButton(
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          icon: const Icon(Icons.menu),
-          color: Colors.teal[200],
+          icon: const Icon(
+            Icons.menu,
+            size: 25.0,
+          ),
+          color: Colors.teal[300],
           onPressed: () {
             print('Menu button pressed');
           },
@@ -57,9 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           widget.title,
           style: TextStyle(
-            color: Colors.teal[200],
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w800,
+            color: Colors.teal[300],
+            fontFamily: 'Winkle',
+            fontSize: 28,
           ),
         ),
       ),
@@ -70,22 +74,25 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               prompt,
               style: TextStyle(
-                  color: Colors.teal[400],
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
+                color: Colors.teal[300],
+                fontSize: 24,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomControlBar(
-        fabLocation: FloatingActionButtonLocation.centerFloat,
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(
+          left: 15,
+          right: 15,
+        ),
+        child: BottomControlBar(
+          fabLocation: FloatingActionButtonLocation.centerFloat,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: _newPrompt,
-        tooltip: 'New prompt',
-        backgroundColor: Colors.teal[200],
-      ),
+      floatingActionButton: BorderedButton(_newPrompt),
     );
   }
 }
