@@ -43,56 +43,68 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: IconButton(
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          icon: const Icon(
-            Icons.menu,
-            size: 25.0,
-          ),
-          color: Colors.teal[300],
-          onPressed: () {
-            print('Menu button pressed');
-          },
-        ),
-        title: Text(
-          widget.title,
-          style: TextStyle(
-            color: Colors.teal[300],
-            fontFamily: 'Winkle',
-            fontSize: 28,
-          ),
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              prompt,
-              style: TextStyle(
-                color: Colors.teal[300],
-                fontSize: 24,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          colors: [
+            Colors.white,
+            Colors.teal[50],
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(
-          left: 15,
-          right: 15,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          leading: IconButton(
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            icon: const Icon(
+              Icons.menu,
+              size: 25.0,
+            ),
+            color: Colors.teal[300],
+            onPressed: () {
+              print('Menu button pressed');
+            },
+          ),
+          title: Text(
+            widget.title,
+            style: TextStyle(
+              color: Colors.teal[300],
+              fontFamily: 'Winkle',
+              fontSize: 28,
+            ),
+          ),
         ),
-        child: BottomControlBar(
-          fabLocation: FloatingActionButtonLocation.centerFloat,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                prompt,
+                style: TextStyle(
+                  color: Colors.teal[300],
+                  fontSize: 24,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
         ),
+        bottomNavigationBar: Container(
+          margin: EdgeInsets.only(
+            left: 15,
+            right: 15,
+          ),
+          child: BottomControlBar(
+            fabLocation: FloatingActionButtonLocation.centerFloat,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: BorderedButton(_newPrompt),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: BorderedButton(_newPrompt),
     );
   }
 }
