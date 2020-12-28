@@ -58,23 +58,54 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          leading: IconButton(
-            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            icon: const Icon(
-              Icons.menu,
-              size: 25.0,
-            ),
-            color: Colors.teal[300],
-            onPressed: () {
-              print('Menu button pressed');
-            },
-          ),
+          // leading: IconButton(
+          //   tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          //   icon: const Icon(
+          //     Icons.menu,
+          //     size: 25.0,
+          //   ),
+          //   color: Colors.teal[300],
+          //   onPressed: () {
+          //     print('Menu button pressed');
+          //   },
+          // ),
           title: Text(
             widget.title,
             style: TextStyle(
               color: Colors.teal[300],
               fontFamily: 'Winkle',
               fontSize: 28,
+            ),
+          ),
+        ),
+        drawer: Drawer(
+          child: Container(
+            color: Colors.teal,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'Settings',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Colors',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'Favorites',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
