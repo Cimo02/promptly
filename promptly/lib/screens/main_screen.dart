@@ -41,17 +41,21 @@ class _MainScreenState extends State<MainScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          // leading: IconButton(
-          //   tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          //   icon: const Icon(
-          //     Icons.menu,
-          //     size: 25.0,
-          //   ),
-          //   color: Colors.teal[300],
-          //   onPressed: () {
-          //     print('Menu button pressed');
-          //   },
-          // ),
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(
+                  Icons.menu,
+                  size: 25.0,
+                ),
+                color: Colors.teal[300],
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              );
+            },
+          ),
           title: Hero(
             tag: 'title',
             child: Text(
