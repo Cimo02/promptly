@@ -39,11 +39,11 @@ class _LoadingScreenState extends State<LoadingScreen>
       print(animationCount);
 
       if (status == AnimationStatus.completed) {
-        controller.reverse(from: 1.0);
-      } else if (status == AnimationStatus.dismissed) {
         if (animationCount >= 6) {
           Navigator.pushNamed(context, MainScreen.route);
         }
+        controller.reverse(from: 1.0);
+      } else if (status == AnimationStatus.dismissed) {
         controller.forward();
       }
     });
@@ -61,7 +61,7 @@ class _LoadingScreenState extends State<LoadingScreen>
           style: TextStyle(
             color: Colors.white.withOpacity(controller.value),
             fontFamily: 'Winkle',
-            fontSize: 36,
+            fontSize: 42,
           ),
         ),
       )),

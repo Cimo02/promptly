@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BottomControlBar extends StatelessWidget {
+class BottomControlBar extends StatefulWidget {
   const BottomControlBar({
     this.fabLocation,
   });
@@ -11,6 +11,13 @@ class BottomControlBar extends StatelessWidget {
     FloatingActionButtonLocation.centerDocked,
     FloatingActionButtonLocation.centerFloat,
   ];
+
+  @override
+  _BottomControlBarState createState() => _BottomControlBarState();
+}
+
+class _BottomControlBarState extends State<BottomControlBar> {
+  bool isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,14 +38,20 @@ class BottomControlBar extends StatelessWidget {
                 print('Share button pressed');
               },
             ),
-            if (centerLocations.contains(fabLocation)) const Spacer(),
+            if (BottomControlBar.centerLocations.contains(widget.fabLocation))
+              const Spacer(),
             IconButton(
-              icon: const Icon(
-                Icons.favorite_border,
+              icon: Icon(
+                (isFavorited)
+                    ? Icons.favorite_rounded
+                    : Icons.favorite_border_rounded,
                 size: 30.0,
               ),
               onPressed: () {
-                print('Favorite button pressed');
+                print('favorite button pressed');
+                setState(() {
+                  isFavorited = !isFavorited;
+                });
               },
             ),
           ],
